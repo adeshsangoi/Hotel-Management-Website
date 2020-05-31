@@ -114,23 +114,4 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `users`
---
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Adesh Sangoi','8073280964','adeshsangoi','Adesh3072','admin','adeshsangoi25@gmail.com'),(7,'Suraj Shrestha','3432432423','suraj','059f661bc41cf166346f215f6018f4cdddd1fff2','admin','surajkrstha@gmail.com'),(8,'Manoj Agrahari','432434234','manoj','abba9d2fdddc1c418f2bf2446cd245d1175be2f7','staff','manoj@gmail.com'),(9,'adesh','5555555555','adeshsangoi2','Adesh123','recep','adeshsangoi25@gmail.com'),(10,'Anmol Jindal','8782535621','Anmol','Anmol123','staff','anmol.jindal13@gmail.com'),(11,'Shubh','7777777777','shubham','Adesh123','staff','aaa22@gmail.com');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-04-03 19:13:50
