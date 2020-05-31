@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+	    <!-- Website Title & Description for Search Engine purposes -->
+		<title>View Customers</title>
+		<meta name="description" content="">
+		
+		<!-- Mobile viewport optimized -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+		<!-- Bootstrap CSS -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+		<link rel="stylesheet" type="text/css" href="includes/css/social-button.css" />
+		
+		<link href="includes/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+		<link href="includes/css/styles.css" rel="stylesheet">
+		
+		<!-- Include Modernizr in the head, before any other Javascript -->
+		<script src="includes/js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <style>
+    button {
+    background-color: #1c9696; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+}
+    table,th,td{
+    	border: 3px solid black;
+    	width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    }
+    	th,td {
+    text-align: center;
+   
+
+	}
+    
+    </style>
+                <script type="text/javascript" src="artyom.window.js"></script>
+    <script type="text/javascript" src="artyom.window.min.js"></script>
+<script type="text/javascript">
+  
+
+  window.onload = function() 
+  {
+
+    console.log("loading window....")
+
+    const artyom = new Artyom();
+    artyom.initialize({
+         lang:"en-US",// More languages are documented in the library
+          continuous:true,//if you have https connection, you can activate continuous 
+          debug:true,//Show everything in the console
+         listen:true, // Start listening when this function is triggered
+         soundex:true,
+        }).then(function(){
+        artyom.say("Proceed");
+        
+    }).catch(function(){
+        artyom.say("An error occurred during the initialization");
+    });
+
+    var commandPlay = {
+      
+        indexes:["Back*"],
+        smart:true,
+        action:function(i,wildcard)
+        { 
+          location.href = ("adminhome.php");
+            
+        }
+    };
+    artyom.addCommands(commandPlay); 
+    var commandPlay3 = {
+      
+        indexes:["log out*"],
+        smart:true,
+        action:function(i,wildcard)
+        { 
+
+          location.href = ("logout.php");
+            
+        }
+    };
+    artyom.addCommands(commandPlay3); 
+
+}
+</script>
+<body>
+	<a href="logout.php" style="float: right";><button type="button">Log Out</button></a>
+	<h3>Customers' list:</h3>
+	<br>
+	<br>
+	<br>
+ <?php
+
+ session_start();
+if($_SESSION['uname']=="")
+{
+    echo "<script> location.href='index.php';</script>";
+}
+$servername = "localhost";
+$username = "root";
+$password = "aadi2912";
+$dbname = "hrs";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+$sql = "SELECT * FROM users where type = 'staff'";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    echo "<table cellpadding='10'><tr><th>Username</th><th>Name</th><th>Email ID</th><th>Phone Number</th></th></tr>";
+    while($row = mysqli_fetch_assoc($result)) {
+    	
+        echo "<tr><td>" . $row["username"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["contact"] ."</td></tr>";
+    }
+   echo "</table>";
+} else {
+    echo "<h3>Sorry! No rooms available right now. Try again later.</h3>";
+}
+
+mysqli_close($conn);
+?> 
+    	<br><br>
+	
+	<a href="adminhome.php"><button type="button">Back to Home Page</button></a> 
+
+    <br>
+    <br>
+    <hr>
+</body>
+</html>
