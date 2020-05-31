@@ -5,7 +5,7 @@ How to run:
 
 1.) Use database.sql file to create the tables needed for this website. 
   
-  First create the database using **create database db_name;** command in sql
+  First create the database using **create database db_name;** 
   
   Run this on command line - **mysql -u username -p -h localhost db_name < database.sql**
 
