@@ -9,7 +9,7 @@ How to run:
   
   Run this on command line - **mysql -u username -p -h localhost db_name < database.sql**
 
-Store project in var/www/html in linux and then run on localhost using the lamp stack.
+2.) Store project in var/www/html in linux and then run on localhost using the lamp stack.
 
 
 The website has been made accessible using voice commands with the help of artyom library. You can find out which voice command to use by seeing the artyom.say("Voice Command") function in the php files
